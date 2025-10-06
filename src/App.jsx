@@ -25,6 +25,7 @@ import { Analytics } from "./components/Analytics";
 import { Journal } from "./components/Journal";
 import { GamificationDashboard } from "./components/GamificationDashboard";
 import { WeeklyPlan } from "./components/WeeklyPlan";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 // ---------------- Reusable Navigation Item ----------------
 const NavItem = ({ icon, label, isActive, onClick }) => (
@@ -126,7 +127,6 @@ const AppContent = () => {
           <NavItem icon={<BarChart3 size={20} />} label="Analytics" isActive={currentView === "analytics"} onClick={() => setCurrentView("analytics")} />
           <NavItem icon={<Trophy size={20} />} label="Gamification" isActive={currentView === "gamification"} onClick={() => setCurrentView("gamification")} />
           <NavItem icon={<BookOpen size={20} />} label="Journal" isActive={currentView === "journal"} onClick={() => setCurrentView("journal")} />
-
           <NavItem icon={<Clock size={20} />} label="Weekly Plan" isActive={currentView === "weeklyPlan"} onClick={() => setCurrentView("weeklyPlan")} />
 
         </nav>
@@ -186,7 +186,12 @@ const AppContent = () => {
 function App() {
   return (
     <AppProvider>
-      <AppContent />
+      <ErrorBoundary>
+
+        <AppContent />
+
+      </ErrorBoundary>
+
     </AppProvider>
   );
 }

@@ -306,10 +306,10 @@ const DayDetailModal = ({ date, onClose }) => {
                     </div>
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${task.status === 'completed'
-                          ? 'bg-green-100 text-green-700'
-                          : task.status === 'ongoing'
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-700'
+                        ? 'bg-green-100 text-green-700'
+                        : task.status === 'ongoing'
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'bg-gray-100 text-gray-700'
                         }`}
                     >
                       {task.status}
@@ -475,6 +475,7 @@ export const CalendarView = () => {
               <div className="w-4 h-4 bg-blue-100 rounded" />
               <span className="text-sm text-gray-600">Tasks scheduled</span>
             </div>
+
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-green-100 rounded" />
               <span className="text-sm text-gray-600">Habits completed</span>
@@ -486,7 +487,6 @@ export const CalendarView = () => {
           </div>
         </div>
       </div>
-
       {/* Day Modal */}
       {selectedDate && <DayDetailModal date={selectedDate} onClose={() => setSelectedDate(null)} />}
     </div>
