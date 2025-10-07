@@ -200,7 +200,7 @@ export const CalendarView = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Calendar</h2>
+            <h2 className="font-bold text-gray-900 mb-2">Calendar</h2>
             <p className="text-gray-600">View your tasks and habits across time</p>
           </div>
 

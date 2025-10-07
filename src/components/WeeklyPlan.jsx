@@ -14,7 +14,7 @@ export const WeeklyPlan = () => {
 
     return (
         <div className="p-4 max-w-2xl mx-auto">
-            <h2 className="text-xl font-bold mb-4">Weekly Plan</h2>
+            <h2 className=" font-bold mb-4">Weekly Plan</h2>
 
             <div className="flex gap-2 mb-4">
                 <select value={day} onChange={e => setDay(e.target.value)} className="border p-2 rounded">

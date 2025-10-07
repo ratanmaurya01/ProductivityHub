@@ -45,10 +45,10 @@ export const GamificationDashboard = () => {
     <div className="h-full overflow-y-auto p-6">
       <div className="max-w-6xl mx-auto space-y-6">
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Gamification Dashboard</h2>
+        <h2 className="font-bold text-gray-900 mb-4">Gamification Dashboard</h2>
 
         {/* ---------------- Points & Badges ---------------- */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white rounded-xl shadow-sm p-6">
           <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <Trophy size={24} /> Points & Badges
           </h3>
@@ -75,7 +75,7 @@ export const GamificationDashboard = () => {
         </div>
 
         {/* ---------------- Leaderboard ---------------- */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white rounded-xl shadow-md p-6">
           <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <CheckCircle size={24} /> Leaderboard
           </h3>
@@ -94,7 +94,8 @@ export const GamificationDashboard = () => {
         </div>
 
         {/* ---------------- Goal Tracking ---------------- */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
+       
+        <div className="bg-white rounded-xl shadow-md p-6">
           <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <CheckCircle size={24} /> Weekly Goal
           </h3>
@@ -106,7 +107,7 @@ export const GamificationDashboard = () => {
             />
           </div>
         </div>
-
+        
       </div>
     </div>
   );

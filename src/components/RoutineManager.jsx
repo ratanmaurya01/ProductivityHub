@@ -184,13 +184,12 @@ export const RoutineManager = () => {
             addRoutine(routineData);
         }
     };
-
     return (
         <div className="h-full overflow-y-auto p-6">
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center justify-between mb-6">
                     <div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Daily Routine</h2>
+                        <h2 className="font-bold text-gray-900 mb-2">Daily Routine</h2>
                         <p className="text-gray-600">Plan and track your daily schedule</p>
                     </div>
                     <button

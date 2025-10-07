@@ -95,7 +95,7 @@ export const Analytics = () => {
     <div className="h-full overflow-y-auto p-6">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Analytics Dashboard</h2>
+          <h2 className="font-bold text-gray-900 mb-2">Analytics Dashboard</h2>
           <p className="text-gray-600">Track your productivity and progress</p>
         </div>
 

@@ -248,7 +248,7 @@ export const Journal = () => {
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center md:text-left">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+          <h2 className="sm:text-3xl font-bold text-gray-900 mb-1">
             Daily Journal
           </h2>
           <p className="text-gray-600 text-sm sm:text-base">

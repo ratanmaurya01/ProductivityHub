@@ -52,10 +52,10 @@ export default function Setting() {
       handleSetPin();
     }
   };
-
+  
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
+      <h2 className="font-semibold mb-4 text-gray-800 dark:text-white">
         App Lock Settings 🔐
       </h2>
 
@@ -66,11 +66,10 @@ export default function Setting() {
         </p>
         <button
           onClick={handleAppLockToggle}
-          className={`px-4 py-2 rounded-lg font-medium ${
-            pinEnabled
+          className={`px-4 py-2 rounded-lg font-medium ${pinEnabled
               ? "bg-red-500 hover:bg-red-600 text-white"
               : "bg-green-500 hover:bg-green-600 text-white"
-          }`}
+            }`}
         >
           {pinEnabled ? "Disable Lock" : "Enable Lock"}
         </button>

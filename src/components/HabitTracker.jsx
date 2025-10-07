@@ -189,7 +189,7 @@ export const HabitTracker = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Habit Tracker</h2>
+            <h2 className="font-bold text-gray-900 mb-2">Habit Tracker</h2>
             <p className="text-gray-600">Build consistency, one day at a time</p>
           </div>
           <button

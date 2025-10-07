@@ -414,6 +414,8 @@ function TaskCard({ task, index, onEdit, onDelete, toggleSubtask }) {
 }
 
 // ---------------- Task Column ----------------
+
+
 function TaskColumn({ status, tasks, onAddTask, onEditTask, onDeleteTask, toggleSubtask }) {
   const statusConfig = {
     pending: { title: "Pending", color: "bg-gray-50 border-gray-300" },
@@ -424,22 +426,25 @@ function TaskColumn({ status, tasks, onAddTask, onEditTask, onDeleteTask, toggle
   const config = statusConfig[status];
 
   return (
-    <div className="flex-1 min-w-[300px]">
-      <div className={`${config.color} p-3 rounded-lg border-2`}>
-        <div className="flex items-center justify-between mb-4">
+    <div className="flex-1 min-w-[300px] h-full">
+      <div className={`${config.color} p-3 rounded-lg border-2 h-full flex flex-col`}>
+        {/* Header */}
+        <div className="flex items-center justify-between mb-3 sticky top-0 bg-inherit z-10">
           <h3 className="font-bold text-gray-800 text-lg">{config.title}</h3>
           <span className="bg-white px-2 py-1 rounded-full text-sm font-semibold text-gray-700">
             {tasks.length}
           </span>
         </div>
 
+        {/* Scrollable task list */}
         <Droppable droppableId={status}>
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className={`min-h-[400px] transition-colors ${snapshot.isDraggingOver ? "bg-white/50 rounded-lg" : ""
-                }`}
+              className={`flex-1 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 rounded-lg ${
+                snapshot.isDraggingOver ? "bg-white/70" : ""
+              }`}
             >
               {tasks.map((task, index) => (
                 <TaskCard
@@ -448,7 +453,6 @@ function TaskColumn({ status, tasks, onAddTask, onEditTask, onDeleteTask, toggle
                   index={index}
                   onEdit={() => onEditTask(task)}
                   onDelete={() => onDeleteTask(task.id)}
-                  toggleSubtask={toggleSubtask}
                 />
               ))}
               {provided.placeholder}
@@ -456,16 +460,20 @@ function TaskColumn({ status, tasks, onAddTask, onEditTask, onDeleteTask, toggle
           )}
         </Droppable>
 
+        {/* Add Task button pinned at bottom */}
         <button
           onClick={onAddTask}
-          className="w-full mt-3 py-2 bg-white border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-all flex items-center justify-center gap-2"
+          className="mt-3 py-2 bg-white border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-all flex items-center justify-center gap-2"
         >
-          <Plus size={18} /> Add Task
+          <Plus size={18} />
+          Add Task
         </button>
       </div>
     </div>
   );
 }
+
+
 
 // ---------------- Task Modal ----------------
 function TaskModal({ task, status, onClose, onSave }) {
@@ -643,8 +651,6 @@ export function TaskBoard() {
   };
 
 
-
-
   useEffect(() => {
     // Request permission once when component mounts
     if ("Notification" in window) {
@@ -683,9 +689,11 @@ export function TaskBoard() {
   };
 
   return (
-    <div className="h-full overflow-x-auto">
+
+
+    <div className="h-[calc(100vh-100px)] overflow-x-auto">
       <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="flex gap-6 p-6 min-w-max">
+        <div className="flex gap-6 p-6 min-w-max h-full">
           {["pending", "ongoing", "completed"].map((status) => (
             <TaskColumn
               key={status}
@@ -709,6 +717,7 @@ export function TaskBoard() {
         />
       )}
     </div>
+
   );
 }
 
