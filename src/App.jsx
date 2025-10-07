@@ -8,6 +8,7 @@ function App() {
   const [locked, setLocked] = useState(false);
   const [isPinSet, setIsPinSet] = useState(false);
   // Request notification permission on app load
+
   useEffect(() => {
     if ("Notification" in window) {
       if (Notification.permission === "default") {
@@ -15,6 +16,7 @@ function App() {
       }
     }
   }, []);
+
   useEffect(() => {
     const savedPin = localStorage.getItem("appPin");
     setIsPinSet(!!savedPin);
