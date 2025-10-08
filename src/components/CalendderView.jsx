@@ -151,7 +151,6 @@ export const CalendarView = () => {
 
   // ---------------- Auto-generate weekly plan tasks ----------------
 
-
   useEffect(() => {
     if (!weeklyPlan || weeklyPlan.length === 0) return;
 

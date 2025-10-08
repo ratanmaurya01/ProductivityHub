@@ -4,9 +4,7 @@ import { CheckCircle, Trophy, Star } from 'lucide-react';
 
 export const GamificationDashboard = () => {
   const { tasks, habits, users } = useApp();
-
   const today = new Date();
-
   // -------------------------
   // 1. Points & Badges
   // -------------------------

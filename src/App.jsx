@@ -9,48 +9,48 @@ function App() {
   const [isPinSet, setIsPinSet] = useState(false);
   // Request notification permission on app load
 
-  useEffect(() => {
-    if ("Notification" in window) {
-      if (Notification.permission === "default") {
-        Notification.requestPermission();
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if ("Notification" in window) {
+  //     if (Notification.permission === "default") {
+  //       Notification.requestPermission();
+  //     }
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const savedPin = localStorage.getItem("appPin");
-    setIsPinSet(!!savedPin);
-    const unlocked = sessionStorage.getItem("appUnlocked");
-    if (!savedPin || unlocked === "true") {
-      setLocked(false);
-    } else {
-      setLocked(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedPin = localStorage.getItem("appPin");
+  //   setIsPinSet(!!savedPin);
+  //   const unlocked = sessionStorage.getItem("appUnlocked");
+  //   if (!savedPin || unlocked === "true") {
+  //     setLocked(false);
+  //   } else {
+  //     setLocked(true);
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    let timer;
-    const lockApp = () => {
-      if (isPinSet) setLocked(true);
-    };
-    const resetTimer = () => {
-      clearTimeout(timer);
-      timer = setTimeout(() => lockApp(), 1000 * 60 * 5);
-    };
-    const handleVisibilityChange = () => {
-      if (document.hidden) lockApp();
-    };
-    window.addEventListener("mousemove", resetTimer);
-    window.addEventListener("keydown", resetTimer);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    resetTimer();
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("mousemove", resetTimer);
-      window.removeEventListener("keydown", resetTimer);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, [isPinSet]);
+  // useEffect(() => {
+  //   let timer;
+  //   const lockApp = () => {
+  //     if (isPinSet) setLocked(true);
+  //   };
+  //   const resetTimer = () => {
+  //     clearTimeout(timer);
+  //     timer = setTimeout(() => lockApp(), 1000 * 60 * 5);
+  //   };
+  //   const handleVisibilityChange = () => {
+  //     if (document.hidden) lockApp();
+  //   };
+  //   window.addEventListener("mousemove", resetTimer);
+  //   window.addEventListener("keydown", resetTimer);
+  //   document.addEventListener("visibilitychange", handleVisibilityChange);
+  //   resetTimer();
+  //   return () => {
+  //     clearTimeout(timer);
+  //     window.removeEventListener("mousemove", resetTimer);
+  //     window.removeEventListener("keydown", resetTimer);
+  //     document.removeEventListener("visibilitychange", handleVisibilityChange);
+  //   };
+  // }, [isPinSet]);
 
   return (
     <AppProvider>
